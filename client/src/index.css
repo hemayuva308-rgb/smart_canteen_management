@@ -1,0 +1,29 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  html { @apply bg-blush text-ink font-sans antialiased; }
+  h1, h2, h3 { @apply font-display tracking-tight; }
+  :focus-visible { @apply outline-none ring-2 ring-offset-2 ring-brand; }
+  button { @apply cursor-pointer; }
+  button:disabled { @apply cursor-not-allowed; }
+}
+@layer components {
+  .btn { @apply inline-flex items-center justify-center gap-2 rounded-xl px-4 py-2.5 text-sm font-semibold transition disabled:opacity-50; min-height: 44px; }
+  .btn-primary { @apply bg-brand text-white hover:bg-brand-dark; }
+  .btn-ghost { @apply bg-white text-ink border border-black/10 hover:bg-brand-soft; }
+  .btn-green { @apply bg-eco-deep text-white hover:opacity-90; }
+  .btn-sm { @apply px-3 py-1.5 text-xs; min-height: 36px; }
+  .card { @apply bg-white rounded-2xl shadow-card border border-black/5; }
+  .input { @apply w-full rounded-xl border border-black/15 bg-white px-3 py-2.5 text-sm placeholder:text-black/40; min-height: 44px; }
+  .label { @apply block text-sm font-semibold mb-1; }
+  .chip { @apply inline-flex items-center rounded-full px-2.5 py-0.5 text-xs font-semibold; }
+}
+@media print {
+  .no-print { display: none !important; }
+  html { background: #fff; }
+}
+@media (prefers-reduced-motion: reduce) { * { animation: none !important; transition: none !important; } }
+@keyframes pop { from { transform: scale(.96); opacity: 0 } to { transform: none; opacity: 1 } }
+.pop { animation: pop .18s ease-out; }
